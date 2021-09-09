@@ -1,0 +1,154 @@
+body{
+	padding: 0;
+	margin: 0;
+	padding-top: 100px;
+	background: url(../img/background.jpg) no-repeat -300px -300px;
+}
+@media only screen and (max-width:1000px) {
+	body{
+		background: url(../img/background.jpg) no-repeat -500px -300px;
+	}
+}
+
+h1{
+	text-align: center;
+	color: #1A759F;
+}
+
+/* 歌词标题 */
+h5{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+hr{
+	border: 1px solid orange;
+	width: 300px;
+	margin-top: 15px;
+}
+
+#lyric{
+	width: 300px;
+	text-align: center;
+	height: 300px;
+	overflow: scroll;
+	color: #21252b;
+}
+
+#title_img{
+	width: 150px;
+}
+
+/* 主页按钮 */
+.main_btn_block{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.main_page_btn{
+	display: inline-block;
+}
+
+.main_page_btn img{
+	display: block;
+	width: 100px;
+}
+#btn1{
+	margin-right: 30px;
+}
+#btn2{
+	margin-right: 45px;
+}
+
+#btn1 img{
+	width: 90px;
+}
+#btn2 img{
+	width: 80px;
+	margin-bottom: 6px;
+}
+
+#btn3 img{
+	width: 62px;
+	margin-bottom: 15px;
+}
+
+/* 小方块 */
+.little_block{
+	margin: 0 auto;
+	padding-top: 2px;
+	padding-bottom: 13px;
+	padding-right: 13px;
+	height: 40px;
+	width: 300px;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	box-shadow:silver 0px 0px 10px;
+	border: #C0C0C0 solid 1px;
+	transform: scale(1);
+	transition: transform 0.5s ease 0s; 
+	margin-bottom: 25px;
+	border: cadetblue 1px solid;
+}
+
+.little_block:hover{
+	transform: scale(1.05);
+}
+
+.little_block:visited{
+	transform: scale(1);
+}
+.little_block:active{
+	transform: scale(1);
+}
+
+.little_block span{
+	line-height: 52px;
+	margin-left: 20px;
+}
+
+.playImg{
+	margin-top: 8px;
+	width: 35px;
+	float: right;
+}
+
+.text{
+	width: 450px;
+}
+
+.bg1{
+	background-color: #d9ed92;
+}
+.bg2{
+	background-color: #b5e48c;
+}
+.bg3{
+	background-color: #99d98c;
+}
+.bg4{
+	background-color: #76c893;
+}
+.bg5{
+	background-color: #52b69a;
+}
+.bg6{
+	background-color: #34a0a4;
+}
+.bg7{
+	background-color: #168aad;
+}
+.bg8{
+	background-color: #1a759f;
+}
+.bg9{
+	background-color: #1e6091;
+}
+.bg10{
+	background-color: #184e77;
+}
+
