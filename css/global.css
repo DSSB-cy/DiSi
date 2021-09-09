@@ -9,19 +9,12 @@ body{
 	width: 450px;
 }
 
-#buildPicture{
-	width: 700px;
-}
-
 @media only screen and (max-width:1000px) {
 	body{
 		background: url(../img/background.jpg) no-repeat -500px -300px;
 	}
 	.about_text{
 		width: 100%;
-	}
-	#buildPicture{
-		width: 450px;
 	}
 }
 
