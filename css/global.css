@@ -4,9 +4,24 @@ body{
 	padding-top: 100px;
 	background: url(../img/background.jpg) no-repeat -300px -300px;
 }
+
+.about_text{
+	width: 450px;
+}
+
+#buildPicture{
+	width: 700px;
+}
+
 @media only screen and (max-width:1000px) {
 	body{
 		background: url(../img/background.jpg) no-repeat -500px -300px;
+	}
+	.about_text{
+		width: 100%;
+	}
+	#buildPicture{
+		width: 450px;
 	}
 }
 
@@ -46,6 +61,7 @@ hr{
 .main_btn_block{
 	margin-top: 20px;
 	margin-bottom: 30px;
+	margin-left: -10px;
 }
 
 .main_page_btn{
@@ -117,8 +133,9 @@ hr{
 	float: right;
 }
 
-.text{
-	width: 450px;
+#aboutPage_body{
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .bg1{
