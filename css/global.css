@@ -31,6 +31,12 @@ h5{
 	font-weight: bold;
 	font-size: 25px;
 }
+/* 经文 */
+h6{
+	font-size: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
 hr{
 	border: 1px solid orange;
@@ -46,13 +52,25 @@ hr{
 	color: #21252b;
 }
 
+#music_block{
+	padding-top: 10px;
+	height: 400px;
+	overflow: scroll;
+}
+
 #title_img{
 	width: 150px;
 }
 
+.line{
+	width:320px;
+	height:1px;
+	background: -webkit-linear-gradient(left, #fbe8b7 -4%,#f9d8b9 50%,#fbe8b7 100%);
+}
+
 /* 主页按钮 */
 .main_btn_block{
-	margin-top: 20px;
+	margin-top: 0px;
 	margin-bottom: 30px;
 	margin-left: -10px;
 }

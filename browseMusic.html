@@ -6,21 +6,41 @@
 		<base target="_blank" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css"  href="css/global.css">
+		<link rel="stylesheet" type="text/css" href="css/global.css">
 	</head>
-	<body>
+	<body style="padding-top: 80px;">
 		<div align="center">
 			<!-- <img id="title_img" src="img/main_title.png"/> -->
-			<h1>浏览音乐</h1>
+			<h1 style="margin-bottom: 0;">浏览音乐</h1>
+			<p style="margin-top: 0px; margin-bottom: 10px;">www.dssb.site</p>
 		</div>
 		<!-- 排列乐曲按钮 -->
-		<div class="little_block bg1" onclick="window.open('musicPages/huoChuAi.html')">
-			<span>活出爱</span>
-			<img class="playImg" src="img/play.png" />
+		<div id="music_block">
+			<div class="little_block bg1" onclick="window.open('musicPages/huoChuAi.html')">
+				<span>活出爱</span>
+				<img class="playImg" src="img/play.png" />
+			</div>
+			<div class="little_block bg2" onclick="window.open('musicPages/qinYanKangJianNi.html')">
+				<span>亲眼看见你</span>
+				<img class="playImg" src="img/play.png" />
+			</div>
+			<div class="little_block bg3" onclick="window.open('musicPages/yongHengDeZhu.html')">
+				<span>永恒的主</span>
+				<img class="playImg" src="img/play.png" />
+			</div>
+			<div class="little_block bg4" onclick="window.open('musicPages/dangXiangYeHeHuaHuanHuGeSong.html')">
+				<span>当向耶和华欢呼歌颂</span>
+				<img class="playImg" src="img/play.png" />
+			</div>
+			<div class="little_block bg5" onclick="window.open('musicPages/zaiJiDuLiHeYi.html')">
+				<span>在基督里合一</span>
+				<img class="playImg" src="img/play.png" />
+			</div>
 		</div>
-		<div class="little_block bg3" onclick="window.open('musicPages/qinYanKangJianNi.html')">
-			<span>亲眼看见你</span>
-			<img class="playImg" src="img/play.png" />
+		<div align="center">
+			<div class="line"></div>
+			<h6>下拉查看更多歌曲</h6>
+			<h6>应当欢欢喜喜事奉耶和华，欢唱着到他的面前。「诗篇100:2」</h6>
 		</div>
 	</body>
 </html>
