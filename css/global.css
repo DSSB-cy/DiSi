@@ -54,7 +54,7 @@ h6{
 hr{
 	border: 1px solid orange;
 	width: 300px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 #lyric{
@@ -63,6 +63,18 @@ hr{
 	height: 300px;
 	overflow: scroll;
 	color: #21252b;
+}
+
+#staff{
+	margin-top: 12px;
+	width: 280px;
+	height: 300px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#staff img{
+	width: 100%;
+	margin-bottom: 7px;
 }
 
 /* 音乐展示模块 */
@@ -162,6 +174,26 @@ hr{
 	width: 35px;
 	float: right;
 }
+
+#music_pages_btn button{
+	background-color:transparent;
+	background-color: rgba(160, 192, 215,0.1);
+	font-size: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 10px;
+	border: #e76f51 1px solid;
+}
+#music_pages_btn{
+	margin-top: 5px;
+}
+#music_pages_btn button:hover{
+	background-color: rgba(237, 181, 115,0.5);
+}
+#music_pages_btn button:active{
+	background-color: rgba(237, 181, 115,1);
 
 /* 背景色 */
 .bg1{

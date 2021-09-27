@@ -5,22 +5,81 @@
 		<title>在基督里合一</title>
 		<link rel="stylesheet" type="text/css" href="../css/global.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<h1>在基督里合一</h1>
 		<div align="center">
-			<audio id="audio" controls src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E5%9C%A8%E5%9F%BA%E7%9D%A3%E9%87%8C%E5%90%88%E4%B8%80%EF%BC%88%E9%99%8D%E5%99%AA%EF%BC%89.mp3"></audio>
+			<audio id="audio" controls
+				src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E5%9C%A8%E5%9F%BA%E7%9D%A3%E9%87%8C%E5%90%88%E4%B8%80%EF%BC%88%E9%99%8D%E5%99%AA%EF%BC%89.mp3"></audio>
 		</div>
-		<hr>
-		<h5>歌词</h5>
-		<div align="center">
-		<div id="lyric">
-			心灵深处光明			<br>源自真光			<br>真光本就是耶稣			<br>心灵深处光明			<br>源自真光			<br>在基督里合一
-			<br>枝子虽有许多			<br>树乃唯一			<br>树本就是耶稣			<br>枝子虽有许多			<br>树乃唯一			<br>在基督里合一
-			<br>恩赐虽有不同			<br>爱中合一			<br>这爱就是耶稣			<br>恩赐虽有不同			<br>爱中合一			<br>在基督里合一
-			<br>侍奉原有分别			<br>圣灵唯一			<br>在圣灵里服侍			<br>侍奉原有分别			<br>圣灵唯一			<br>在基督里合一
-			<br>肢体虽有许多			<br>却是一体			<br>肢体连于耶稣			<br>肢体虽有许多			<br>却是一体			<br>在基督里合一
-		</div>
+		<div id="lyc">
+			<div align="center" id="music_pages_btn">
+				<button @click="turn_type1()">歌词</button>
+				<button @click="turn_type2()">歌谱</button>
+			</div>
+			<hr>
+			<!-- <h5>歌词</h5> -->
+			<div align="center">
+				<div id="lyric" v-show="type==='1'">
+					心灵深处光明
+					<br>源自真光
+					<br>真光本就是耶稣
+					<br>心灵深处光明
+					<br>源自真光
+					<br>在基督里合一
+					<br>枝子虽有许多
+					<br>树乃唯一
+					<br>树本就是耶稣
+					<br>枝子虽有许多
+					<br>树乃唯一
+					<br>在基督里合一
+					<br>恩赐虽有不同
+					<br>爱中合一
+					<br>这爱就是耶稣
+					<br>恩赐虽有不同
+					<br>爱中合一
+					<br>在基督里合一
+					<br>侍奉原有分别
+					<br>圣灵唯一
+					<br>在圣灵里服侍
+					<br>侍奉原有分别
+					<br>圣灵唯一
+					<br>在基督里合一
+					<br>肢体虽有许多
+					<br>却是一体
+					<br>肢体连于耶稣
+					<br>肢体虽有许多
+					<br>却是一体
+					<br>在基督里合一
+				</div>
+			</div>
+			<!-- 歌谱轮播图 -->
+			<div align="center">
+				<div id="staff" v-show="type==='2'">
+					<img src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E6%AD%8C%E8%B0%B1/%E5%9C%A8%E5%9F%BA%E7%9D%A3%E9%87%8C%E5%90%88%E4%B8%80/%E5%9C%A8%E5%9F%BA%E7%9D%A3%E9%87%8C%E5%90%88%E4%B8%80.jpg" />
+					<div class="line"></div>
+				</div>
+			</div>
+			<div align="center">
+				<h6 style="color:rgba(40, 44, 53,0.4)">----上拉查看完整歌词或歌谱----</h6>
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#lyc",
+			data: {
+				type: "1"
+			},
+			methods:{
+				turn_type1(){
+					vm.type='1'
+				},
+				turn_type2(){
+					vm.type='2'
+				}
+			}
+		})
+	</script>
 </html>
