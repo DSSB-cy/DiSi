@@ -195,6 +195,12 @@ hr{
 #music_pages_btn button:active{
 	background-color: rgba(237, 181, 115,1);
 }
+#music_pages_btn button:focus{
+    outline: none;
+}
+#music_pages_btn button:visited{
+	outline: none;
+}
 
 /* 背景色 */
 .bg1{
