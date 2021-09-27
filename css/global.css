@@ -12,7 +12,7 @@ body{
 	width: 450px;
 }
 
-@media only screen and (max-width:1800px) {
+@media only screen and (max-width:1500px) {
 	body{
 		background: url(../img/background.jpg) no-repeat -300px -300px;
 	}
@@ -194,6 +194,7 @@ hr{
 }
 #music_pages_btn button:active{
 	background-color: rgba(237, 181, 115,1);
+}
 
 /* 背景色 */
 .bg1{

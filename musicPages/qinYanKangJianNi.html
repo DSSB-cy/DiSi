@@ -5,45 +5,79 @@
 		<title>亲眼看见你</title>
 		<link rel="stylesheet" type="text/css" href="../css/global.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<h1>亲眼看见你</h1>
 		<div align="center">
-			<audio id="audio" controls src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E3%80%8A%E4%BA%B2%E7%9C%BC%E7%9C%8B%E8%A7%81%E4%BD%A0%E3%80%8B.mp3"></audio>
+			<audio id="audio" controls
+				src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E3%80%8A%E4%BA%B2%E7%9C%BC%E7%9C%8B%E8%A7%81%E4%BD%A0%E3%80%8B.mp3"></audio>
 		</div>
-		<hr>
-		<h5>歌词</h5>
-		<div align="center">
-		<div id="lyric">
-			有你,我生命不一样
-			<br>有你,我生命在燃亮
-			<br>有你,我不害怕困难
-			<br>有你,我有满足的喜乐
-			<br>我在,深处里求告你
-			<br>你在,天上听我祷告
-			<br>你是,我坚固避难所
-			<br>我赞美你直到永远
-			<br>太阳还存
-			<br>月亮还在
-			<br>人要敬畏你直到万代
-			<br>我从前风闻有你
-			<br>现在我亲眼看见你
-			<br>我在,深处里求告你
-			<br>你在,天上听我祷告
-			<br>你是,我坚固避难所
-			<br>我赞美你直到永远
-			<br>太阳还存
-			<br>月亮还在
-			<br>人要敬畏你直到万代
-			<br>我从前风闻有你
-			<br>现在我亲眼看见你
-			<br>太阳还存
-			<br>月亮还在
-			<br>人要敬畏你直到万代
-			<br>我从前风闻有你
-			<br>现在我亲眼看见你
-			<br>现在我亲眼看见你
-		</div>
+		<div id="lyc">
+			<div align="center" id="music_pages_btn">
+				<button @click="turn_type1()">歌词</button>
+				<button @click="turn_type2()">歌谱</button>
+			</div>
+			<hr>
+			<!-- <h5>歌词</h5> -->
+			<div align="center">
+				<div id="lyric" v-show="type==='1'">
+					有你,我生命不一样
+								<br>有你,我生命在燃亮
+								<br>有你,我不害怕困难
+								<br>有你,我有满足的喜乐
+								<br>我在,深处里求告你
+								<br>你在,天上听我祷告
+								<br>你是,我坚固避难所
+								<br>我赞美你直到永远
+								<br>太阳还存
+								<br>月亮还在
+								<br>人要敬畏你直到万代
+								<br>我从前风闻有你
+								<br>现在我亲眼看见你
+								<br>我在,深处里求告你
+								<br>你在,天上听我祷告
+								<br>你是,我坚固避难所
+								<br>我赞美你直到永远
+								<br>太阳还存
+								<br>月亮还在
+								<br>人要敬畏你直到万代
+								<br>我从前风闻有你
+								<br>现在我亲眼看见你
+								<br>太阳还存
+								<br>月亮还在
+								<br>人要敬畏你直到万代
+								<br>我从前风闻有你
+								<br>现在我亲眼看见你
+								<br>现在我亲眼看见你
+				</div>
+			</div>
+			<!-- 歌谱轮播图 -->
+			<div align="center">
+				<div id="staff" v-show="type==='2'">
+					<img src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E6%AD%8C%E8%B0%B1/3-2-008%20%E4%BA%B2%E7%9C%BC%E7%9C%8B%E8%A7%81%E4%BD%A0/%E4%BA%B2%E7%9C%BC%E7%9C%8B%E8%A7%81%E4%BD%A0.jpg" />
+					<div class="line"></div>
+				</div>
+			</div>
+			<div align="center">
+				<h6 style="color:rgba(40, 44, 53,0.4)">----上拉查看完整歌词或歌谱----</h6>
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#lyc",
+			data: {
+				type: "1"
+			},
+			methods:{
+				turn_type1(){
+					vm.type='1'
+				},
+				turn_type2(){
+					vm.type='2'
+				}
+			}
+		})
+	</script>
 </html>
