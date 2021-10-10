@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>万物的结局近了</title>
+		<link rel="stylesheet" type="text/css" href="../css/global.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 60px;">
+		<h1>万物的结局近了</h1>
+		<div align="center">
+			<audio id="audio" controls
+				src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E4%B8%87%E7%89%A9%E7%9A%84%E7%BB%93%E5%B1%80%E8%BF%91%E4%BA%86.mp3"></audio>
+		</div>
+		<div id="lyc">
+			<div align="center" id="music_pages_btn">
+				<button @click="turn_type1()">歌词</button>
+				<button @click="turn_type2()">歌谱</button>
+			</div>
+			<hr>
+			<!-- <h5>歌词</h5> -->
+			<div align="center">
+				<div id="lyric" v-show="type==='1'">
+					万物的结局近了
+					<br/>所  以  我  们  要
+					<br/>谨  慎  自  守
+					<br/>儆  醒  祷  告
+					<br/>最要紧的是彼此切实相爱
+					<br/>因为爱能遮掩许多的罪
+					<br/>因为爱能遮掩许多的罪
+					<br/>我们要互相款待不发怨言
+					<br/>各人要照所得的恩赐彼此服侍
+					<br/>做神百般恩赐的好管家
+					<br/>做神百般恩赐的好管家
+				</div>
+			</div>
+			<!-- 歌谱轮播图 -->
+			<div align="center">
+				<div id="staff" v-show="type==='2'">
+					暂无曲谱
+					<!-- <div class="line"></div> -->
+				</div>
+			</div>
+			<div align="center">
+				<h6 style="color:rgba(40, 44, 53,0.4)">----上拉查看完整歌词或歌谱----</h6>
+				<h6 style="color: rgba(40, 44, 53,0.7); margin-top: -8px;">歌 谱 原 图「长按」保 存</h6>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#lyc",
+			data: {
+				type: "1"
+			},
+			methods:{
+				turn_type1(){
+					vm.type='1'
+				},
+				turn_type2(){
+					vm.type='2'
+				}
+			}
+		})
+	</script>
+</html>
