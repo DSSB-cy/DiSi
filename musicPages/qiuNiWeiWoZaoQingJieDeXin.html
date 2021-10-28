@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>求你为我造清洁的心</title>
+		<link rel="stylesheet" type="text/css" href="../css/global.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 60px;">
+		<h1>求你为我造清洁的心</h1>
+		<div align="center">
+			<audio id="audio" controls
+				src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E6%B1%82%E7%A5%A2%E4%B8%BA%E6%88%91%E9%80%A0%E6%B8%85%E6%B4%81%E7%9A%84%E5%BF%83.mp3"></audio>
+		</div>
+		<div id="lyc">
+			<div align="center" id="music_pages_btn">
+				<button @click="turn_type1()">歌词</button>
+				<button @click="turn_type2()">歌谱</button>
+			</div>
+			<hr>
+			<!-- <h5>歌词</h5> -->
+			<div align="center">
+				<div id="lyric" v-show="type==='1'">
+					神啊，求你为我造清洁的心
+					<br>使我里面重新有正直的灵。
+					<br>不要丢弃我，使我离开你的面
+					<br>不要从我收回你圣灵。
+					<br>求你使我仍得救恩之乐，
+					<br>赐我乐意的灵来扶持我。
+					<br>你 的 杖 ，你 的 竿，
+					<br>领 我 到 你 的 面 前 ，
+					<br>使 我 走 正 义 路 。
+					<br>神啊，你是拯救我的神，
+					<br>我的好处不在你以外。
+					<br>我的舌头高声歌唱你慈爱，
+					<br>我的口传扬赞美你的话。
+					<br>神啊，求你为我造清洁的心，
+					<br>使我里面重新有正直的灵。
+					<br>不要丢弃我，使我离开你的面
+					<br>不要从我收回你圣灵。
+				</div>
+			</div>
+			<!-- 歌谱轮播图 -->
+			<div align="center">
+				<div id="staff" v-show="type==='2'">
+					<img src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E6%AD%8C%E8%B0%B1/%E6%B1%82%E4%BD%A0%E4%B8%BA%E6%88%91%E9%80%A0%E6%B8%85%E6%B4%81%E7%9A%84%E5%BF%83/%E6%B1%82%E4%BD%A0%E4%B8%BA%E6%88%91%E9%80%A0%E6%B8%85%E6%B4%81%E7%9A%84%E5%BF%83.jpg" />
+					<div class="line"></div>
+				</div>
+			</div>
+			<div align="center">
+				<h6 style="color:rgba(40, 44, 53,0.4)">----上拉查看完整歌词或歌谱----</h6>
+				<h6 style="color: rgba(40, 44, 53,0.7); margin-top: -8px;">歌 谱 原 图「长按」保 存</h6>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#lyc",
+			data: {
+				type: "1"
+			},
+			methods:{
+				turn_type1(){
+					vm.type='1'
+				},
+				turn_type2(){
+					vm.type='2'
+				}
+			}
+		})
+	</script>
+</html>
