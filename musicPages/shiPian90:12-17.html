@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>诗篇90篇 12-17节</title>
+		<link rel="stylesheet" type="text/css" href="../css/global.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 60px;">
+		<h1>诗篇90篇 12-17节</h1>
+		<div align="center">
+			<audio id="audio" controls
+				src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E8%AF%97%E7%AF%8790%E7%AF%8712-17%E8%8A%82.mp3"></audio>
+		</div>
+		<div id="lyc">
+			<div align="center" id="music_pages_btn">
+				<button @click="turn_type1()">歌词</button>
+				<button @click="turn_type2()">歌谱</button>
+			</div>
+			<hr>
+			<!-- <h5>歌词</h5> -->
+			<div align="center">
+				<div id="lyric" v-show="type==='1'">
+					求你指教我们怎样数算自己的日子，
+					<br>好叫我们得着智慧的心。
+					<br>耶和华啊，我们要等到几时呢？
+					<br>求你转回，为你的仆人后悔。
+					<br>求你使我们早早饱得你的慈爱，
+					<br>好叫我们一生一世欢呼喜乐。
+					<br>求你照着你使我们受苦的日子
+					<br>和我们遭难的年岁，叫我们喜乐。
+					<br>愿你的作为向你仆人显现；
+					<br>愿你的荣耀向他们子孙显明。
+					<br>愿主我们　神的荣美归于我们身上。
+					<br>愿你坚立我们手所作的工；
+					<br>我们手所作的工，愿你坚立。
+				</div>
+			</div>
+			<!-- 歌谱轮播图 -->
+			<div align="center">
+				<div id="staff" v-show="type==='2'">
+					<div>暂无歌谱</div>
+					<div class="line"></div>
+				</div>
+			</div>
+			<div align="center">
+				<h6 style="color:rgba(40, 44, 53,0.4)">----上拉查看完整歌词或歌谱----</h6>
+				<h6 style="color: rgba(40, 44, 53,0.7); margin-top: -8px;">歌 谱 原 图「长按」保 存</h6>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#lyc",
+			data: {
+				type: "1"
+			},
+			methods:{
+				turn_type1(){
+					vm.type='1'
+				},
+				turn_type2(){
+					vm.type='2'
+				}
+			}
+		})
+	</script>
+</html>
