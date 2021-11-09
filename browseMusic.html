@@ -16,7 +16,7 @@
 		<!-- 排列乐曲按钮 -->
 		<div align="center">
 			<div id="music_block">
-				<input type="text" class="search_input" placeholder="🔍 搜索诗歌" v-model="search_keyword"/>
+				<input type="text" class="search_input" placeholder="搜索诗歌 Search Music" v-model="search_keyword"/>
 				<div v-for="(music,index) in filMusic">
 					<div class="little_block" :class="music.bg" @click="goToPage(index)">
 						<span>{{music.title}}</span>

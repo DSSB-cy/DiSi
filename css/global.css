@@ -3,7 +3,7 @@ body{
 	padding: 0;
 	margin: 0;
 	padding-top: 100px;
-	background: url('https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/background.jpg') no-repeat;
+	background: url('https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/background.jpg')no-repeat;
 	background-size: 100vw 100vh;
 }
 
@@ -11,15 +11,11 @@ body{
 	width: 450px;
 }
 
-
-@media only screen and (max-width:1500px) {
-	html{
-		
-	}
-}
-
 @media only screen and (max-width:1000px) {
 	body{
+		background: url('https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/background.jpg')no-repeat;
+		background-size: 150% 100vh;
+		background-position-x: 50%;
 		
 	}
 	.about_text{
