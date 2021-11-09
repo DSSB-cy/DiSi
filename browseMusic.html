@@ -14,58 +14,25 @@
 			<p style="margin-top: 0px; margin-bottom: 10px;">www.dssb.site</p>
 		</div>
 		<!-- 排列乐曲按钮 -->
-		<div id="music_block">
-			<div class="little_block bg4" onclick="window.open('musicPages/shiPian90:12-17.html')">
-				<span>诗篇90篇 12-17节</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg3" onclick="window.open('musicPages/qiuNiWeiWoZaoQingJieDeXin.html')">
-				<span>求你为我造清洁的心</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg2" onclick="window.open('musicPages/renFuHuoZaiWo.html')">
-				<span>人复活在我</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg1" onclick="window.open('musicPages/qiDaoShiWoChangDeSheng.html')">
-				<span>祈祷使我常得胜</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg7" style="overflow: hidden; padding-top: 0px;">
-				<span style="width: 70px; height: 53px; display: inline-block; margin: 0;text-align: center;border-radius: 10px 0px 0px 10px; float: left;" class="bg1" onclick="window.open('musicPages/zaoCanXieFangGe.html')">早餐</span>
-				<span style="width: 70px; height: 53px; display: inline-block; margin: 0;text-align: center;border-radius: 0px 0px 0px 0px; float: left;" class="bg3" onclick="window.open('musicPages/wuCanXieFangGe.html')">午餐</span>
-				<span style="margin: 0;color: floralwhite;margin-left: 14px;" onclick="window.open('musicPages/wanCanXieFangGe.html')">晚餐谢饭歌</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg2" onclick="window.open('musicPages/xieFangGeChuanJiaoShiBan.html')">
-				<span>谢饭歌 (传教士版)</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg3" onclick="window.open('musicPages/huoChuAi.html')">
-				<span>活出爱</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<!-- <div class="little_block bg2" onclick="window.open('musicPages/qinYanKangJianNi.html')">
-				<span>亲眼看见你</span>
-				<img class="playImg" src="img/play.png" />
-			</div> -->
-			<div class="little_block bg4" onclick="window.open('musicPages/yongHengDeZhu.html')">
-				<span>永恒的主</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg5" onclick="window.open('musicPages/dangXiangYeHeHuaHuanHuGeSong.html')">
-				<span>当向耶和华欢呼歌颂</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg6" onclick="window.open('musicPages/zaiJiDuLiHeYi.html')">
-				<span>在基督里合一</span>
-				<img class="playImg" src="img/play.png" />
-			</div>
-			<div class="little_block bg8" onclick="window.open('musicPages/wanWuDeJieJuJinLe.html')">
-				<span>万物的结局近了</span>
-				<img class="playImg" src="img/play.png" />
+		<div align="center">
+			<div id="music_block">
+				<input type="text" class="search_input" placeholder="🔍 搜索诗歌" v-model="search_keyword"/>
+				<div v-for="(music,index) in filMusic">
+					<div class="little_block" :class="music.bg" @click="goToPage(index)">
+						<span>{{music.title}}</span>
+						<img class="playImg" src="img/play.png" />
+					</div>
+				</div>
+				
+				<div class="little_block bg7" style="overflow: hidden; padding-top: 0px;">
+					<span style="width: 70px; height: 53px; display: inline-block; margin: 0;text-align: center;border-radius: 10px 0px 0px 10px; float: left;" class="bg1" onclick="window.open('musicPages/zaoCanXieFangGe.html')">早餐</span>
+					<span style="width: 70px; height: 53px; display: inline-block; margin: 0;text-align: center;border-radius: 0px 0px 0px 0px; float: left;" class="bg3" onclick="window.open('musicPages/wuCanXieFangGe.html')">午餐</span>
+					<span style="margin: 0;color: floralwhite;margin-left: 14px;" onclick="window.open('musicPages/wanCanXieFangGe.html')">晚餐谢饭歌</span>
+					<img class="playImg" src="img/play.png" />
+				</div>
 			</div>
 		</div>
+	
 		<div align="center">
 			<div class="line"></div>
 			<h6>上滑查看更多歌曲</h6>
@@ -73,4 +40,76 @@
 			<h6 style="margin-top: 5px;">「诗篇100:2」</h6>
 		</div>
 	</body>
+	<script>
+		var vm = new Vue({
+			el:'#music_block',
+			data:{
+				musicList:[
+					{
+						bg:"bg4",
+						url:'musicPages/shiPian90:12-17.html',
+						title:'诗篇90篇 12-17节'
+					},
+					{
+						bg:'bg3',
+						url:'musicPages/qiuNiWeiWoZaoQingJieDeXin.html',
+						title:'求你为我造清洁的心'
+					},
+					{
+						bg:'bg2',
+						url:'musicPages/renFuHuoZaiWo.html',
+						title:'人复活在我'
+					},
+					{
+						bg:'bg1',
+						url:'musicPages/qiDaoShiWoChangDeSheng.html',
+						title:'祈祷使我常得胜'
+					},
+					{
+						bg:'bg2',
+						url:'musicPages/xieFangGeChuanJiaoShiBan.html',
+						title:'谢饭歌 (传教士版)'
+					},
+					{
+						bg:'bg3',
+						url:'musicPages/huoChuAi.html',
+						title:'活出爱'
+					},
+					{
+						bg:'bg4',
+						url:'musicPages/yongHengDeZhu.html',
+						title:'永恒的主'
+					},
+					{
+						bg:'bg5',
+						url:'musicPages/dangXiangYeHeHuaHuanHuGeSong.html',
+						title:'当向耶和华欢呼歌颂'
+					},
+					{
+						bg:'bg6',
+						url:'musicPages/zaiJiDuLiHeYi.html',
+						title:'在基督里合一'
+					},
+					{
+						bg:'bg7',
+						url:'musicPages/wanWuDeJieJuJinLe.html',
+						title:'万物的结局近了'
+					}
+				],
+				search_keyword:''
+			},
+			methods:{
+				goToPage(i){
+					window.open(this.musicList[i].url);
+				}
+			},
+			computed:{
+				filMusic(){
+					return this.musicList.filter((p)=>{
+						return p.title.indexOf(this.search_keyword)!==-1;
+					})
+				}
+			}
+		})
+	</script>
 </html>
