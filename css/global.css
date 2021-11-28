@@ -13,8 +13,9 @@ body{
 
 @media only screen and (max-width:1000px) {
 	body{
-		background: url('https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/sincerely-media-vAU56NxvIZo-unsplash.jpg')no-repeat;	
-		background-size: 100vw 100vh;
+		background: url('https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/background.jpg')no-repeat;	
+		background-size:200% 100vh;
+		background-position-x:50% ;
 	}
 	.about_text{
 		width: 100%;
@@ -52,6 +53,7 @@ hr{
 #lyric{
 	width: 300px;
 	text-align: center;
+	text-shadow: white 0px 0px 5px;
 	height: 330px;
 	overflow: scroll;
 	color: #21252b;
