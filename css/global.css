@@ -13,9 +13,9 @@ body{
 
 @media only screen and (max-width:1000px) {
 	body{
-		background: url('https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/joanna-kosinska-llLttk4TgT4-unsplash.jpg')no-repeat;	
-		background-size:170% 100vh;
-		background-position-x:55% ;
+		background: url('https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/background.jpg')no-repeat;	
+		background-size:200% 100vh;
+		background-position-x:50% ;
 	}
 	.about_text{
 		width: 100%;
