@@ -1,150 +1,221 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>浏览音乐</title>
-		<base target="_blank" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="css/global.css">
-	</head>
-	<body style="padding-top: 45px;">
-		<div align="center">
-			<h1 style="margin-bottom: 0;">浏览音乐</h1>
-			<p style="margin-top: 0px; margin-bottom: 10px;">www.dssb.site</p>
-		</div>
-		<!-- 排列乐曲按钮 -->
-		<div align="center">
-			<div id="music_block">
-				<input type="text" class="search_input" placeholder="搜索诗歌 Search Music" v-model="search_keyword"/>
-				<div v-for="(music,index) in filMusic">
-					<div class="little_block" :class="music.bg" @click="goToPage(index)">
-						<span>{{music.title}}</span>
-						<img class="playImg" src="img/play.png" />
-					</div>
-				</div>
-				
-				<div class="little_block bg7" style="overflow: hidden; padding-top: 0px;">
-					<span style="width: 70px; height: 53px; display: inline-block; margin: 0;text-align: center;border-radius: 10px 0px 0px 10px; float: left;" class="bg1" onclick="window.open('musicPages/zaoCanXieFangGe.html')">早餐</span>
-					<span style="width: 70px; height: 53px; display: inline-block; margin: 0;text-align: center;border-radius: 0px 0px 0px 0px; float: left;" class="bg3" onclick="window.open('musicPages/wuCanXieFangGe.html')">午餐</span>
-					<span style="margin: 0;color: floralwhite;margin-left: 14px;" onclick="window.open('musicPages/wanCanXieFangGe.html')">晚餐谢饭歌</span>
-					<img class="playImg" src="img/play.png" />
-				</div>
-			</div>
-		</div>
-	
-		<div align="center">
-			<div class="line"></div>
-			<h6>上滑查看更多歌曲</h6>
-			<h6 style="margin-bottom: 0;">应当欢欢喜喜事奉耶和华，欢唱着到他的面前</h6>
-			<h6 style="margin-top: 5px;">「诗篇100:2」</h6>
-		</div>
-	</body>
-	<script>
-		var vm = new Vue({
-			el:'#music_block',
-			data:{
-				musicList:[
-					{
-						bg:"bg3",
-						url:'musicPages/zhuGeiWoZiNvMingFen.html',
-						title:'主给我子女名分'
-					},
-					{
-						bg:"bg4",
-						url:'musicPages/shengMingHuoShui.html',
-						title:'生命活水'
-					},
-					{
-						bg:"bg5",
-						url:'musicPages/woYuZhuTongXing.html',
-						title:'我与主同行'
-					},
-					{
-						bg:"bg6",
-						url:'musicPages/woDeDengXuYaoYou.html',
-						title:'我的灯需要油'
-					},
-					{
-						bg:"bg7",
-						url:'musicPages/tianDiliDeZhuangJia.html',
-						title:'田地里的庄稼'
-					},
-					{
-						bg:"bg6",
-						url:'musicPages/yeHeHuaQinJinWo.html',
-						title:'耶和华亲近我'
-					},
-					{
-						bg:"bg5",
-						url:'musicPages/zhuAWoYuanYi.html',
-						title:'主啊！我愿意'
-					},
-					{
-						bg:"bg4",
-						url:'musicPages/shiPian90:12-17.html',
-						title:'诗篇90篇 12-17节'
-					},
-					{
-						bg:'bg3',
-						url:'musicPages/qiuNiWeiWoZaoQingJieDeXin.html',
-						title:'求你为我造清洁的心'
-					},
-					{
-						bg:'bg2',
-						url:'musicPages/renFuHuoZaiWo.html',
-						title:'人复活在我'
-					},
-					{
-						bg:'bg1',
-						url:'musicPages/qiDaoShiWoChangDeSheng.html',
-						title:'祈祷使我常得胜'
-					},
-					{
-						bg:'bg2',
-						url:'musicPages/xieFangGeChuanJiaoShiBan.html',
-						title:'谢饭歌 (传教士版)'
-					},
-					{
-						bg:'bg3',
-						url:'musicPages/huoChuAi.html',
-						title:'活出爱'
-					},
-					{
-						bg:'bg4',
-						url:'musicPages/yongHengDeZhu.html',
-						title:'永恒的主'
-					},
-					{
-						bg:'bg5',
-						url:'musicPages/dangXiangYeHeHuaHuanHuGeSong.html',
-						title:'当向耶和华欢呼歌颂'
-					},
-					{
-						bg:'bg6',
-						url:'musicPages/zaiJiDuLiHeYi.html',
-						title:'在基督里合一'
-					},
-					{
-						bg:'bg7',
-						url:'musicPages/wanWuDeJieJuJinLe.html',
-						title:'万物的结局近了'
-					}
-				],
-				search_keyword:''
-			},
-			methods:{
-				goToPage(i){
-					window.open(this.musicList[i].url);
-				}
-			},
-			computed:{
-				filMusic(){
-					return this.musicList.filter((p)=>{
-						return p.title.indexOf(this.search_keyword)!==-1;
-					})
-				}
-			}
-		})
-	</script>
+  <head>
+    <meta charset="utf-8" />
+    <title>浏览音乐</title>
+    <base target="_blank" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+  </head>
+  <body style="padding-top: 45px">
+    <div align="center">
+      <h1 style="margin-bottom: 0">浏览音乐</h1>
+      <p style="margin-top: 0px; margin-bottom: 10px">www.dssb.site</p>
+    </div>
+    <!-- 排列乐曲按钮 -->
+    <div align="center">
+      <div id="music_block">
+        <input
+          type="text"
+          class="search_input"
+          placeholder="搜索诗歌 Search Music"
+          v-model="search_keyword"
+        />
+        <div v-for="(music,index) in filMusic">
+          <div class="little_block" :class="music.bg" @click="goToPage(index)">
+            <span>{{music.title}}</span>
+            <img class="playImg" src="img/play.png" />
+          </div>
+        </div>
+
+        <div
+          class="little_block bg7"
+          style="overflow: hidden; padding-top: 0px"
+        >
+          <span
+            style="
+              width: 70px;
+              height: 53px;
+              display: inline-block;
+              margin: 0;
+              text-align: center;
+              border-radius: 10px 0px 0px 10px;
+              float: left;
+            "
+            class="bg1"
+            onclick="window.open('musicPages/zaoCanXieFangGe.html')"
+            >早餐</span
+          >
+          <span
+            style="
+              width: 70px;
+              height: 53px;
+              display: inline-block;
+              margin: 0;
+              text-align: center;
+              border-radius: 0px 0px 0px 0px;
+              float: left;
+            "
+            class="bg3"
+            onclick="window.open('musicPages/wuCanXieFangGe.html')"
+            >午餐</span
+          >
+          <span
+            style="margin: 0; color: floralwhite; margin-left: 14px"
+            onclick="window.open('musicPages/wanCanXieFangGe.html')"
+            >晚餐谢饭歌</span
+          >
+          <img class="playImg" src="img/play.png" />
+        </div>
+      </div>
+    </div>
+
+    <div align="center">
+      <div class="line"></div>
+      <h6>上滑查看更多歌曲</h6>
+      <h6 style="margin-bottom: 0">应当欢欢喜喜事奉耶和华，欢唱着到他的面前</h6>
+      <h6 style="margin-top: 5px">「诗篇100:2」</h6>
+    </div>
+  </body>
+  <script>
+    var vm = new Vue({
+      el: "#music_block",
+      data: {
+        musicList: [
+          {
+            bg: "bg5",
+            url: "musicPages/zhuXunWangYangGe.html",
+            title: "主寻亡羊歌",
+          },
+          {
+            bg: "bg4",
+            url: "musicPages/woMenKeWangYeSuJiangLin.html",
+            title: "我们渴望耶稣降临",
+          },
+          {
+            bg: "bg3",
+            url: "musicPages/weiYouJiDu.html",
+            title: "唯有基督",
+          },
+          {
+            bg: "bg2",
+            url: "musicPages/shangZhuZhiLing.html",
+            title: "上主之灵",
+          },
+          {
+            bg: "bg1",
+            url: "musicPages/maCaoGe.html",
+            title: "马槽歌",
+          },
+          {
+            bg: "bg2",
+            url: "musicPages/huanXinBaMuRen.html",
+            title: "欢欣吧！牧人",
+          },
+          {
+            bg: "bg3",
+            url: "musicPages/zhuGeiWoZiNvMingFen.html",
+            title: "主给我子女名分",
+          },
+          {
+            bg: "bg4",
+            url: "musicPages/shengMingHuoShui.html",
+            title: "生命活水",
+          },
+          {
+            bg: "bg5",
+            url: "musicPages/woYuZhuTongXing.html",
+            title: "我与主同行",
+          },
+          {
+            bg: "bg6",
+            url: "musicPages/woDeDengXuYaoYou.html",
+            title: "我的灯需要油",
+          },
+          {
+            bg: "bg7",
+            url: "musicPages/tianDiliDeZhuangJia.html",
+            title: "田地里的庄稼",
+          },
+          {
+            bg: "bg6",
+            url: "musicPages/yeHeHuaQinJinWo.html",
+            title: "耶和华亲近我",
+          },
+          {
+            bg: "bg5",
+            url: "musicPages/zhuAWoYuanYi.html",
+            title: "主啊！我愿意",
+          },
+          {
+            bg: "bg4",
+            url: "musicPages/shiPian90:12-17.html",
+            title: "诗篇90篇 12-17节",
+          },
+          {
+            bg: "bg3",
+            url: "musicPages/qiuNiWeiWoZaoQingJieDeXin.html",
+            title: "求你为我造清洁的心",
+          },
+          {
+            bg: "bg2",
+            url: "musicPages/renFuHuoZaiWo.html",
+            title: "人复活在我",
+          },
+          {
+            bg: "bg1",
+            url: "musicPages/qiDaoShiWoChangDeSheng.html",
+            title: "祈祷使我常得胜",
+          },
+          {
+            bg: "bg2",
+            url: "musicPages/xieFangGeChuanJiaoShiBan.html",
+            title: "谢饭歌 (传教士版)",
+          },
+          {
+            bg: "bg3",
+            url: "musicPages/huoChuAi.html",
+            title: "活出爱",
+          },
+          {
+            bg: "bg4",
+            url: "musicPages/yongHengDeZhu.html",
+            title: "永恒的主",
+          },
+          {
+            bg: "bg5",
+            url: "musicPages/dangXiangYeHeHuaHuanHuGeSong.html",
+            title: "当向耶和华欢呼歌颂",
+          },
+          {
+            bg: "bg6",
+            url: "musicPages/zaiJiDuLiHeYi.html",
+            title: "在基督里合一",
+          },
+          {
+            bg: "bg7",
+            url: "musicPages/wanWuDeJieJuJinLe.html",
+            title: "万物的结局近了",
+          },
+        ],
+        search_keyword: "",
+      },
+      methods: {
+        goToPage(i) {
+          window.open(this.musicList[i].url);
+        },
+      },
+      computed: {
+        filMusic() {
+          return this.musicList.filter((p) => {
+            return p.title.indexOf(this.search_keyword) !== -1;
+          });
+        },
+      },
+    });
+  </script>
 </html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>主寻亡羊歌</title>
+    <link rel="stylesheet" type="text/css" href="../css/global.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script
+      src="../js/vue.min.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body style="padding-top: 60px">
+    <div id="data">
+      <h1>主寻亡羊歌</h1>
+      <div align="center">
+        <audio id="audio" controls :src="playing_url"></audio>
+      </div>
+      <div id="lyc">
+        <div align="center" id="music_pages_btn">
+          <button @click="turn_type1()">歌词</button>
+          <button @click="turn_type2()">歌谱</button>
+          <button
+            @click="change_the_audio_to_accompaniment()"
+            :class="audio_accompaniment_state?'btn_active':''"
+          >
+            伴奏
+          </button>
+          <button
+            @click="change_the_audio_to_lossless()"
+            :class="audio_source==1?'btn_active':''"
+          >
+            无损
+          </button>
+        </div>
+        <hr />
+        <!-- <h5>歌词</h5> -->
+        <div align="center">
+          <div id="lyric" v-show="type==='1'">
+            一百只羊，有九十九，
+            <br />在主栏中安眠； <br />但有一只远离金门， <br />迷路群山之间；
+            <br />远在荒山空谷徘徊， <br />远离良牧照顾慈怀，
+            <br />远离良牧照顾慈怀。 <br />“此间主有九十九只，
+            <br />难道还嫌不够？” <br />良牧回答：“那只迷羊，本来是我所有；
+            <br />路径虽然高低不平，旷野虽远， <br />我必去寻，
+            旷野虽远，我必去寻。” <br />得救之羊，从未知道，
+            <br />路中山高水深； <br />不知长夜何等黑暗，寻羊何等艰辛。
+            <br />旷野之中， <br />救主遥闻迷羊失望垂死哀鸣，
+            <br />迷羊失望垂死哀鸣。 <br />问主：“山径沿途血迹，到底从何而来？”
+            <br />主说：”牧人必须流血，迷羊才救得回。”
+            <br />问主：“双手因何伤裂？” <br />主说：“因为路多荆棘，”
+            <br />主说：“因为路多荆棘。” <br />远从迅雷轰破之山，穿过危崖绝壁，
+            <br />牧人呼声直达天门：“乐哉，亡羊已得。”
+            <br />围绕宝座天使和唱：“乐哉，主已觅得亡羊！
+            <br />乐哉，主已觅得亡羊！”（阿们）
+          </div>
+        </div>
+        <!-- 歌谱轮播图 -->
+        <div align="center">
+          <div id="staff" v-show="type==='2'">
+            <!-- <div>暂无歌谱</div> -->
+            <img src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E6%AD%8C%E8%B0%B1/%E4%B8%BB%E5%AF%BB%E4%BA%A1%E7%BE%8A%E6%AD%8C.jpg" />
+            <div class="line"></div>
+          </div>
+        </div>
+        <div align="center">
+          <h6 style="color: rgba(40, 44, 53, 0.4)">
+            ----上拉查看完整歌词或歌谱----
+          </h6>
+          <h6 style="color: rgba(40, 44, 53, 0.7); margin-top: -8px">
+            歌 谱 原 图「长按」保 存
+          </h6>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: "#data",
+      data: {
+        type: "1",
+        playing_url: "",
+        mp3_url:
+          "https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E4%B8%BB%E5%AF%BB%E4%BA%A1%E7%BE%8A%E6%AD%8C.mp3",
+        mp3_accompaniment_url:
+          "https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E4%BC%B4%E5%A5%8F/%E4%B8%BB%E5%AF%BB%E4%BA%A1%E7%BE%8A%E6%AD%8C%E4%BC%B4%E5%A5%8F.mp3",
+        wav_url:
+          "https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E6%97%A0%E6%8D%9F/%E4%B8%BB%E5%AF%BB%E4%BA%A1%E7%BE%8A%E6%AD%8C.wav",
+        wav_accompaniment_url:
+          "https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/%E6%97%A0%E6%8D%9F/%E4%BC%B4%E5%A5%8F/%E4%B8%BB%E5%AF%BB%E4%BA%A1%E7%BE%8A%E6%AD%8C%E4%BC%B4%E5%A5%8F.wav",
+        // 0 表示是mp3音源；1 表示是wav音源
+        audio_source: 0,
+        // 0是人声模式，1是伴奏模式
+        audio_accompaniment_state: 0,
+      },
+      methods: {
+        turn_type1() {
+          vm.type = "1";
+        },
+        turn_type2() {
+          vm.type = "2";
+        },
+        change_the_audio_to_accompaniment() {
+          // 如果是mp3音源，则切换mp3的伴奏模式
+          if (this.audio_source == 0) {
+            if (this.playing_url == this.mp3_url) {
+              // 播放mp3伴奏
+              this.playing_url = this.mp3_accompaniment_url;
+              this.audio_accompaniment_state = 1;
+            } else {
+              // 播放mp3
+              this.playing_url = this.mp3_url;
+              this.audio_accompaniment_state = 0;
+            }
+          } else {
+            // 如果是wav音源，则切换wav的伴奏模式
+            if (this.playing_url == this.wav_url) {
+              // 播放wav伴奏
+              this.playing_url = this.wav_accompaniment_url;
+              this.audio_accompaniment_state = 1;
+            } else {
+              // 播放wav
+              this.playing_url = this.wav_url;
+              this.audio_accompaniment_state = 0;
+            }
+          }
+        },
+        change_the_audio_to_lossless() {
+          // 如果是mp3，则切换成wav
+          if (this.audio_source == 0) {
+            this.audio_source = 1;
+            // 如果是mp3人声，则切换成wav人声
+            if (this.playing_url == this.mp3_url) {
+              this.playing_url = this.wav_url;
+            } else {
+              // 如果是mp3伴奏，则切换成wav伴奏
+              this.playing_url = this.wav_accompaniment_url;
+            }
+          } else {
+            // 如果是wav，则切换成mp3
+            this.audio_source = 0;
+            // 如果是wav人声，则切换成mp3人声
+            if (this.playing_url == this.wav_url) {
+              this.playing_url = this.mp3_url;
+            } else {
+              // 如果是wav伴奏，则切换成mp3伴奏
+              this.playing_url = this.mp3_accompaniment_url;
+            }
+          }
+        },
+      },
+      mounted() {
+        // 初始化后将「mp3的URL」賦值给「播放URL」
+        this.playing_url = this.mp3_url;
+        this.audio_source = 0;
+      },
+    });
+  </script>
+  <style>
+    #music_pages_btn button {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    #music_pages_btn .btn_active {
+      background-color: rgba(237, 181, 115, 1);
+    }
+  </style>
+</html>
