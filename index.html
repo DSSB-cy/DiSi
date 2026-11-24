@@ -1,46 +1,106 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>第四诗班</title>
-		<meta name="keywords" content="第四诗班" />
-		<base target="_blank" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="css/global.css">
-	</head>
-	<body>
-		<div align="center">
-			<h1 style="margin-bottom: 0;">第四诗班</h1>
-			<p style="margin-top: 0px; margin-bottom: 10px;">www.dssb.site</p>
-		</div>
-		<!-- 主页按钮 -->
-		<div align="center" class="main_btn_block">
-			<div class="main_page_btn" id="btn1" onclick="window.open('browseMusic.html')">
-				<img src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/music.png" />
-				<span>浏览音乐</span>
-			</div>
-			<div class="main_page_btn" id="btn2" onclick="window.open('about.html')">
-				<img src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/about.png" />
-				<span>关于本站</span>
-			</div>
-			<div class="main_page_btn" id="btn3" onclick="window.open('downloadApp.html')">
-				<img src="https://vichien-public.oss-cn-guangzhou.aliyuncs.com/DISI%20App/icon/app.png" />
-				<span>一起守望</span>
-			</div>
-		</div>
-		<!-- 排列乐曲按钮 -->
-		<div class="little_block bg1" onclick="window.open('musicPages/zhuXunWangYangGe.html')">
-			<span>主寻亡羊歌</span>
-			<img class="playImg" src="img/play.png" />
-		</div>
-		<div class="little_block bg3" onclick="window.open('musicPages/woMenKeWangYeSuJiangLin.html')">
-			<span>我们渴望耶稣降临</span>
-			<img class="playImg" src="img/play.png" />
-		</div>
-		<div class="little_block bg5" onclick="window.open('browseMusic.html')">
-			<span>查看更多</span>
-		</div>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="第四诗班诗歌集，聆听诗歌、查阅歌词与歌谱。">
+  <title>第四诗班 · 诗歌播放器</title>
+  <link rel="stylesheet" href="css/player.css">
+  <script src="data/songs.js" defer></script>
+  <script src="js/player.js" defer></script>
+</head>
+<body>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="note" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 10l12-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="18" cy="16" rx="3" ry="2.5"/></symbol>
+    <symbol id="search-icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="play-icon" viewBox="0 0 24 24"><path class="solid" d="M7 3.9v16.2L20 12Z"/></symbol>
+    <symbol id="pause-icon" viewBox="0 0 24 24"><path class="solid" d="M6 4h4v16H6zm8 0h4v16h-4z"/></symbol>
+    <symbol id="previous-icon" viewBox="0 0 24 24"><path d="M5 5v14"/><path class="solid" d="M19 5 8 12l11 7Z"/></symbol>
+    <symbol id="next-icon" viewBox="0 0 24 24"><path d="M19 5v14"/><path class="solid" d="m5 5 11 7-11 7Z"/></symbol>
+    <symbol id="shuffle-icon" viewBox="0 0 24 24"><path d="M3 6h3c5 0 6 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 3.5-2.3 4.5-4m3-4c1.2-2.1 2.5-4 4.5-4h3m-4-4 4 4-4 4"/></symbol>
+    <symbol id="repeat-icon" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M21 6H7a4 4 0 0 0-4 4v1m4 11-4-4 4-4m-4 4h14a4 4 0 0 0 4-4v-1"/></symbol>
+    <symbol id="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9zm13 0a4 4 0 0 1 0 6m2-9a8 8 0 0 1 0 12"/></symbol>
+    <symbol id="lyrics-icon" viewBox="0 0 24 24"><path d="M5 5h14M5 12h14M5 19h9"/></symbol>
+    <symbol id="score-icon" viewBox="0 0 24 24"><path d="M3 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-3-1.5H3zm18 0h-6a3 3 0 0 0-3 3v13a4 4 0 0 1 3-1.5h6z"/></symbol>
+  </svg>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="第四诗班首页">
+      <span class="brand-mark"><svg aria-hidden="true"><use href="#note"/></svg></span>
+      <span class="brand-text">第四诗班 <small>www.dssb.site</small></span>
+    </a>
+    <nav aria-label="主导航">
+      <a href="#songs" class="nav-current">诗歌列表</a>
+      <a href="about.html">关于本站</a>
+      <a href="downloadApp.html">一起守望</a>
+    </nav>
+  </header>
 
-	</body>
+  <p class="site-verse">应当欢欢喜喜事奉耶和华，欢唱着到他的面前<span>（诗篇100:2）</span></p>
+
+  <main class="layout">
+    <div class="workspace">
+      <section class="player panel" aria-labelledby="track-title">
+        <div class="album-art" aria-hidden="true">
+          <svg><use href="#note"/></svg>
+        </div>
+        <div class="player-main">
+          <p class="player-label">当前曲目</p>
+          <h1 id="track-title">第四诗班</h1>
+          <div class="variants" aria-label="音源选项">
+            <div class="segment" role="group" aria-label="演唱版本">
+              <button type="button" data-part="vocal" disabled>原唱</button>
+              <button type="button" data-part="backing" disabled>伴奏</button>
+            </div>
+            <div class="segment" role="group" aria-label="音质">
+              <button type="button" data-quality="standard" disabled>标准</button>
+              <button type="button" data-quality="lossless" disabled>无损</button>
+            </div>
+          </div>
+          <audio id="audio" preload="none"></audio>
+          <div class="timeline">
+            <input id="seek" type="range" min="0" max="1" step="0.1" value="0" aria-label="播放进度" disabled>
+            <div class="time"><span id="current-time">0:00</span><span id="duration">–:––</span></div>
+          </div>
+          <div class="transport" role="group" aria-label="播放控制">
+            <button type="button" class="icon-button" id="shuffle" aria-label="随机播放" title="随机播放" aria-pressed="false" disabled><svg aria-hidden="true"><use href="#shuffle-icon"/></svg></button>
+            <button type="button" class="icon-button" id="previous" aria-label="上一曲" title="上一曲" disabled><svg aria-hidden="true"><use href="#previous-icon"/></svg></button>
+            <button type="button" class="icon-button play" id="play" aria-label="播放" title="播放" disabled><svg aria-hidden="true"><use id="play-state" href="#play-icon"/></svg></button>
+            <button type="button" class="icon-button" id="next" aria-label="下一曲" title="下一曲" disabled><svg aria-hidden="true"><use href="#next-icon"/></svg></button>
+            <button type="button" class="icon-button" id="repeat" aria-label="循环模式：关闭" title="循环模式：关闭" disabled><svg aria-hidden="true"><use href="#repeat-icon"/></svg><span id="repeat-one" hidden>1</span></button>
+            <label class="volume" title="音量"><svg aria-hidden="true"><use href="#volume-icon"/></svg><input id="volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="音量"></label>
+          </div>
+          <p id="playback-message" class="playback-message" role="status" hidden></p>
+        </div>
+      </section>
+
+      <section class="reading panel" aria-label="诗歌内容">
+        <div class="reading-header">
+          <div class="tabs" role="tablist" aria-label="诗歌内容模式">
+            <button type="button" id="lyrics-tab" role="tab" aria-controls="lyrics" aria-selected="true"><svg aria-hidden="true"><use href="#lyrics-icon"/></svg>歌词</button>
+            <button type="button" id="score-tab" role="tab" aria-controls="scores" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="#score-icon"/></svg>歌谱</button>
+          </div>
+          <a id="score-original" target="_blank" rel="noopener" hidden>打开歌谱原图</a>
+        </div>
+        <div class="lyrics" id="lyrics" role="tabpanel" aria-labelledby="lyrics-tab" tabindex="0"></div>
+        <div class="scores" id="scores" role="tabpanel" aria-labelledby="score-tab" tabindex="0" hidden></div>
+      </section>
+    </div>
+    <aside class="library panel" id="songs" tabindex="-1" aria-labelledby="library-title">
+      <div class="library-header">
+        <div class="library-heading">
+          <h2 id="library-title">诗歌列表</h2>
+          <span id="song-count"></span>
+        </div>
+        <label class="search">
+          <svg aria-hidden="true"><use href="#search-icon"/></svg>
+          <input id="search" type="search" placeholder="搜索诗歌" aria-label="搜索诗歌">
+        </label>
+      </div>
+      <ul class="song-list" id="song-list"></ul>
+      <p class="empty" id="library-message" role="status">正在读取诗歌列表…</p>
+    </aside>
+
+  </main>
+  <noscript><p class="empty panel">请启用 JavaScript 以使用诗歌播放器。</p></noscript>
+</body>
 </html>

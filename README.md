@@ -1,3 +1,34 @@
-# DiSi
-This is a GitHub page
-#### Welcome to www.dssb.site
+# 第四诗班 · 诗歌播放器
+
+站点：[dssb.ink](https://dssb.ink/)  
+发布仓库：[DSSB-cy/DiSi](https://github.com/DSSB-cy/DiSi)  
+本次改版以该仓库的 `80fc9d752eae078438155ba11842312d70745352` 为基线。
+
+## 本地预览
+
+双击 `index.html` 即可打开播放器。音频和歌谱需要联网。也可以在此目录启动本地静态服务：
+
+```sh
+python3 -m http.server 8080 --bind 127.0.0.1
+```
+
+打开 [http://127.0.0.1:8080/](http://127.0.0.1:8080/)。整个目录可直接作为 GitHub Pages 的静态站点发布，无需构建。
+
+## 更新诗歌
+
+编辑 `data/songs.js` 中的 `songCatalog`。文件顺序也是顺序播放的次序。每首诗歌有唯一的 `id`、标题 `title`、歌词 `lyrics`、歌谱图片数组 `scores` 和音源 `audio`。歌词用换行分隔，缺少歌谱时用空数组。音源只保留实际存在、对应这首诗歌的版本。
+
+| 音源字段 | 对应版本 |
+| --- | --- |
+| `standard` | 原唱 MP3 |
+| `lossless` | 原唱 WAV |
+| `accompaniment` | 伴奏 MP3 |
+| `accompanimentLossless` | 伴奏 WAV |
+
+至少提供一个原唱音源。音频和歌谱继续使用可公开读取的 HTTPS 地址，现有文件托管在阿里云 OSS。歌单、歌词和播放器由 GitHub Pages 提供，无需 API POST 服务或 ApiPost 工具。现有歌曲旧地址会跳转到 `index.html#歌曲ID`，新增诗歌可直接分享这一格式的链接。
+
+## 播放行为
+
+打开页面、查看歌词，或暂停时用上一曲／下一曲选歌，都不会预读音频。开始播放时才连接音源并显示总时长。
+
+随机播放会将当前曲目之后的歌单打乱，一轮内每首只出现一次。循环按钮依次切换关闭、列表循环、单曲循环。切换音质保留播放位置，切换原唱与伴奏从头播放。所选版本在新曲目可用时会继续使用。
