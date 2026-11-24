@@ -26,7 +26,7 @@
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="第四诗班首页">
       <span class="brand-mark"><svg aria-hidden="true"><use href="#note"/></svg></span>
-      <span class="brand-text">第四诗班 <small>www.dssb.site</small></span>
+      <span class="brand-text">第四诗班 <small>dssb.ink</small></span>
     </a>
     <nav aria-label="主导航">
       <a href="#songs" class="nav-current">诗歌列表</a>
@@ -38,14 +38,30 @@
   <p class="site-verse">应当欢欢喜喜事奉耶和华，欢唱着到他的面前<span>（诗篇100:2）</span></p>
 
   <main class="layout">
+    <aside class="library panel" id="songs" tabindex="-1" aria-labelledby="library-title">
+      <div class="library-header">
+        <div class="library-heading">
+          <h2 id="library-title">诗歌列表</h2>
+          <span id="song-count"></span>
+        </div>
+        <label class="search">
+          <svg aria-hidden="true"><use href="#search-icon"/></svg>
+          <input id="search" type="search" placeholder="搜索诗歌" aria-label="搜索诗歌">
+        </label>
+      </div>
+      <ul class="song-list" id="song-list"></ul>
+      <p class="empty" id="library-message" role="status">正在读取诗歌列表…</p>
+    </aside>
+
     <div class="workspace">
-      <section class="player panel" aria-labelledby="track-title">
+      <section class="player panel" id="player" aria-labelledby="track-title">
+        <a class="mobile-back" href="#songs">返回歌单</a>
         <div class="album-art" aria-hidden="true">
           <svg><use href="#note"/></svg>
         </div>
         <div class="player-main">
           <p class="player-label">当前曲目</p>
-          <h1 id="track-title">第四诗班</h1>
+          <h1 id="track-title" tabindex="-1">第四诗班</h1>
           <div class="variants" aria-label="音源选项">
             <div class="segment" role="group" aria-label="演唱版本">
               <button type="button" data-part="vocal" disabled>原唱</button>
@@ -85,21 +101,6 @@
         <div class="scores" id="scores" role="tabpanel" aria-labelledby="score-tab" tabindex="0" hidden></div>
       </section>
     </div>
-    <aside class="library panel" id="songs" tabindex="-1" aria-labelledby="library-title">
-      <div class="library-header">
-        <div class="library-heading">
-          <h2 id="library-title">诗歌列表</h2>
-          <span id="song-count"></span>
-        </div>
-        <label class="search">
-          <svg aria-hidden="true"><use href="#search-icon"/></svg>
-          <input id="search" type="search" placeholder="搜索诗歌" aria-label="搜索诗歌">
-        </label>
-      </div>
-      <ul class="song-list" id="song-list"></ul>
-      <p class="empty" id="library-message" role="status">正在读取诗歌列表…</p>
-    </aside>
-
   </main>
   <noscript><p class="empty panel">请启用 JavaScript 以使用诗歌播放器。</p></noscript>
 </body>

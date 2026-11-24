@@ -41,6 +41,12 @@ function trackFromLocation() {
   return tracks.find((item) => trackHash(item.id) === location.hash || '#' + item.id === location.hash);
 }
 
+function showMobilePlayer(moveFocus = false) {
+  if (!matchMedia('(max-width: 660px)').matches) return;
+  if (moveFocus) get('track-title').focus({ preventScroll: true });
+  get('player').scrollIntoView({ block: 'start' });
+}
+
 function getSource(selectedPart, selectedQuality) {
   return track.audio[variantKeys[selectedPart][selectedQuality]];
 }
@@ -198,12 +204,13 @@ function renderRows() {
     link.addEventListener('click', (event) => {
       if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
-      if (track !== item) selectTrack(item, { autoplay: true, historyMode: 'push' });
-      else if (audio.paused) startPlayback();
-      if (matchMedia('(max-width: 660px)').matches) {
-        play.focus({ preventScroll: true });
-        get('track-title').scrollIntoView({ block: 'center' });
+      if (track !== item) {
+        selectTrack(item, { autoplay: true, historyMode: 'push' });
+      } else {
+        if (location.hash !== trackHash(item.id)) history.pushState(null, '', trackHash(item.id));
+        if (audio.paused) startPlayback();
       }
+      showMobilePlayer(true);
     });
     row.append(link);
     return { item, row, link };
@@ -297,8 +304,10 @@ function init() {
   tracks = songCatalog;
   order = tracks;
   renderRows();
-  selectTrack(trackFromLocation() ?? tracks[0]);
+  const linkedTrack = trackFromLocation();
+  selectTrack(linkedTrack ?? tracks[0]);
   for (const control of [play, shuffle, repeat, previous]) control.disabled = false;
+  if (linkedTrack) showMobilePlayer();
 }
 
 play.addEventListener('click', () => {
@@ -358,7 +367,10 @@ lyricsTab.parentElement.addEventListener('keydown', (event) => {
 
 window.addEventListener('hashchange', () => {
   const item = trackFromLocation();
-  if (item && item !== track) selectTrack(item);
+  if (item) {
+    if (item !== track) selectTrack(item);
+    showMobilePlayer();
+  }
   if (!location.hash && tracks.length && tracks[0] !== track) selectTrack(tracks[0]);
 });
 

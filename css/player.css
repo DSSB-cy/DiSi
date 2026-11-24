@@ -92,6 +92,8 @@ svg {
   padding-bottom: 36px;
 }
 .workspace { grid-area: 1 / 2; display: grid; gap: 18px; min-width: 0; }
+.mobile-back { display: none; }
+.player { scroll-margin-top: 12px; }
 .panel {
   background: var(--surface);
   border: 1px solid #fff;
@@ -279,6 +281,19 @@ input[type="range"] { display: block; width: 100%; margin: 0; height: 22px; acce
   .panel { border-radius: 19px; }
   .library { grid-area: auto; height: min(65dvh, 480px); min-height: 280px; }
   .player { padding: 16px; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .mobile-back {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    min-height: 44px;
+    padding-inline: 12px;
+    border-radius: 9px;
+    background: #f3e9f8;
+    color: var(--accent-deep);
+    font-size: .875rem;
+    font-weight: 650;
+  }
+  .mobile-back:hover { background: #eee3f8; }
   .album-art { display: none; }
   .transport { gap: 10px; }
   .reading { min-height: 251px; }
